@@ -14,11 +14,19 @@
     "build": "tsc",
     "dev": "tsc --watch",
     "start": "node dist/index.js",
-    "test": "node --test dist/tests/calculator.test.js dist/tests/fonts.test.js dist/tests/presets.test.js dist/tests/measure-text.test.js dist/tests/page-capacity.test.js dist/tests/measure-file.test.js",
+    "test": "node --test dist/tests/calculator.test.js dist/tests/fonts.test.js dist/tests/presets.test.js dist/tests/measure-text.test.js dist/tests/page-capacity.test.js",
     "postbuild": "node -e \"const fs=require('fs');const f='dist/index.js';const c=fs.readFileSync(f,'utf8');if(!c.startsWith('#!'))fs.writeFileSync(f,'#!/usr/bin/env node\\n'+c)\"",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["mcp", "page", "document", "formatting", "llm", "claude", "cursor"],
+  "keywords": [
+    "mcp",
+    "page",
+    "document",
+    "formatting",
+    "llm",
+    "claude",
+    "cursor"
+  ],
   "author": "Sammy-Dabbas",
   "license": "MIT",
   "repository": {
@@ -27,7 +35,6 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.0",
-    "pdf-parse": "^1.1.1",
     "zod": "^3.25.0"
   },
   "devDependencies": {

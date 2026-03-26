@@ -1,4 +1,5 @@
 import type { PageFormat, PaperSize, PaperDimensions, FontName, Margins, PresetName } from "../types.js";
+import { POINTS_PER_INCH } from "../types.js";
 
 export const PAPER_SIZES: Record<PaperSize, PaperDimensions> = {
   letter: { width: 612, height: 792 },
@@ -14,7 +15,7 @@ interface PresetDef {
   lineSpacing: number;
 }
 
-const PRESET_DEFS: Record<"resume" | "letter" | "a4-essay", PresetDef> = {
+const PRESET_DEFS: Record<Exclude<PresetName, "custom">, PresetDef> = {
   resume: {
     paper: "letter",
     font: "calibri",
@@ -35,6 +36,34 @@ const PRESET_DEFS: Record<"resume" | "letter" | "a4-essay", PresetDef> = {
     fontSize: 12,
     margins: { top: 1.0, bottom: 1.0, left: 1.0, right: 1.0 },
     lineSpacing: 2.0,
+  },
+  report: {
+    paper: "letter",
+    font: "times-new-roman",
+    fontSize: 12,
+    margins: { top: 1.0, bottom: 1.0, left: 1.0, right: 1.0 },
+    lineSpacing: 1.5,
+  },
+  manuscript: {
+    paper: "letter",
+    font: "courier",
+    fontSize: 12,
+    margins: { top: 1.0, bottom: 1.0, left: 1.0, right: 1.0 },
+    lineSpacing: 2.0,
+  },
+  thesis: {
+    paper: "letter",
+    font: "times-new-roman",
+    fontSize: 12,
+    margins: { top: 1.0, bottom: 1.0, left: 1.5, right: 1.0 },
+    lineSpacing: 2.0,
+  },
+  memo: {
+    paper: "letter",
+    font: "arial",
+    fontSize: 11,
+    margins: { top: 1.0, bottom: 1.0, left: 1.0, right: 1.0 },
+    lineSpacing: 1.15,
   },
 };
 

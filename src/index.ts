@@ -5,7 +5,6 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 import { handleMeasureText } from "./tools/measure-text.js";
 import { handlePageCapacity } from "./tools/page-capacity.js";
-import { handleMeasureFile } from "./tools/measure-file.js";
 
 const server = new McpServer({
   name: "page-fit",
@@ -19,7 +18,7 @@ const marginsSchema = z.object({
   right: z.number().min(0),
 }).optional();
 
-const presetSchema = z.enum(["resume", "letter", "a4-essay", "custom"]).default("resume");
+const presetSchema = z.enum(["resume", "letter", "a4-essay", "report", "manuscript", "thesis", "memo", "custom"]).default("resume");
 const paperSchema = z.enum(["letter", "a4", "legal"]).optional();
 const fontSchema = z.string().optional();
 
@@ -54,14 +53,6 @@ server.tool(
   async (input) => handlePageCapacity(input) as any
 );
 
-server.tool(
-  "measure_file",
-  "Get the page count of an existing PDF file.",
-  {
-    file_path: z.string().min(1).describe("Absolute path to the PDF file"),
-  },
-  async (input) => handleMeasureFile(input) as any
-);
 
 const transport = new StdioServerTransport();
 await server.connect(transport);

@@ -1,6 +1,6 @@
 export type PaperSize = "letter" | "a4" | "legal";
 export type FontName = "times-new-roman" | "arial" | "calibri" | "courier" | "garamond" | "georgia" | "helvetica";
-export type PresetName = "resume" | "letter" | "a4-essay" | "custom";
+export type PresetName = "resume" | "letter" | "a4-essay" | "report" | "manuscript" | "thesis" | "memo" | "custom";
 
 export interface Margins {
   top: number;
@@ -62,12 +62,5 @@ export interface CapacityResult {
   format_summary: string;
 }
 
-export interface FileResult {
-  file: string;
-  pages: number;
-  format: string;
-}
-
 export const CHARS_PER_WORD = 6;
 export const POINTS_PER_INCH = 72;
-export const MAX_FILE_SIZE = 50 * 1024 * 1024;

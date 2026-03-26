@@ -3,10 +3,37 @@ import assert from "node:assert/strict";
 import { PRESETS, PAPER_SIZES, resolveFormat } from "../engine/presets.js";
 
 describe("presets", () => {
-  it("has all three presets defined", () => {
+  it("has all presets defined", () => {
     assert.ok(PRESETS.resume);
     assert.ok(PRESETS.letter);
     assert.ok(PRESETS["a4-essay"]);
+    assert.ok(PRESETS.report);
+    assert.ok(PRESETS.manuscript);
+    assert.ok(PRESETS.thesis);
+    assert.ok(PRESETS.memo);
+  });
+
+  it("manuscript uses courier with double spacing", () => {
+    const format = resolveFormat("manuscript", {});
+    assert.strictEqual(format.font, "courier");
+    assert.strictEqual(format.lineSpacing, 2.0);
+  });
+
+  it("thesis has wider left margin for binding", () => {
+    const format = resolveFormat("thesis", {});
+    assert.strictEqual(format.margins.left, 1.5);
+    assert.strictEqual(format.margins.right, 1.0);
+  });
+
+  it("report uses 1.5 spacing", () => {
+    const format = resolveFormat("report", {});
+    assert.strictEqual(format.lineSpacing, 1.5);
+  });
+
+  it("memo uses arial 11pt", () => {
+    const format = resolveFormat("memo", {});
+    assert.strictEqual(format.font, "arial");
+    assert.strictEqual(format.fontSize, 11);
   });
 
   it("has all paper sizes defined", () => {
