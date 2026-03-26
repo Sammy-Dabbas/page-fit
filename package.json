@@ -14,7 +14,7 @@
     "build": "tsc",
     "dev": "tsc --watch",
     "start": "node dist/index.js",
-    "test": "node --test dist/tests/*.test.js",
+    "test": "node --test dist/tests/calculator.test.js dist/tests/fonts.test.js dist/tests/presets.test.js dist/tests/measure-text.test.js dist/tests/page-capacity.test.js dist/tests/measure-file.test.js",
     "postbuild": "node -e \"const fs=require('fs');const f='dist/index.js';const c=fs.readFileSync(f,'utf8');if(!c.startsWith('#!'))fs.writeFileSync(f,'#!/usr/bin/env node\\n'+c)\"",
     "prepublishOnly": "npm run build"
   },
