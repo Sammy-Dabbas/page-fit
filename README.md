@@ -127,26 +127,6 @@ Calculate how many characters, words, and lines fit on a given number of pages w
 }
 ```
 
-### measure_file
-
-Get the page count of an existing PDF file (up to 50 MB).
-
-**Parameters:**
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `file_path` | string | yes | Absolute path to the PDF file |
-
-**Example output:**
-
-```json
-{
-  "file": "/home/user/resume.pdf",
-  "pages": 2,
-  "format": "pdf"
-}
-```
-
 ## Presets
 
 | Preset | Paper | Font | Size | Margins | Line Spacing |
@@ -154,6 +134,10 @@ Get the page count of an existing PDF file (up to 50 MB).
 | `resume` | US Letter | Calibri | 10.5pt | 0.75in | Single |
 | `letter` | US Letter | Times New Roman | 12pt | 1.0in | Single |
 | `a4-essay` | A4 | Times New Roman | 12pt | 1.0in | Double |
+| `report` | US Letter | Times New Roman | 12pt | 1.0in | 1.5x |
+| `manuscript` | US Letter | Courier | 12pt | 1.0in | Double |
+| `thesis` | US Letter | Times New Roman | 12pt | 1.5in left, 1.0in others | Double |
+| `memo` | US Letter | Arial | 11pt | 1.0in | 1.15x |
 
 ## Supported Fonts
 
