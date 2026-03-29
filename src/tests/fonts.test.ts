@@ -13,7 +13,7 @@ describe("fonts", () => {
   it("returns scaled width for a font at a given size", () => {
     const width = getFontWidth("calibri", 10.5);
     assert.ok(width > 0);
-    assert.strictEqual(width, 4.58 * 10.5);
+    assert.strictEqual(width, 0.458 * 10.5);
   });
 
   it("identifies courier as monospace", () => {

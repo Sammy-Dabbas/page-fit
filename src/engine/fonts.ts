@@ -1,13 +1,13 @@
 import type { FontName } from "../types.js";
 
 export const FONT_METRICS: Record<FontName, number> = {
-  "times-new-roman": 4.42,
-  "arial": 4.78,
-  "calibri": 4.58,
-  "courier": 6.00,
-  "garamond": 4.20,
-  "georgia": 4.85,
-  "helvetica": 4.78,
+  "times-new-roman": 0.442,
+  "arial": 0.478,
+  "calibri": 0.458,
+  "courier": 0.600,
+  "garamond": 0.420,
+  "georgia": 0.485,
+  "helvetica": 0.478,
 };
 
 const MONOSPACE_FONTS: Set<FontName> = new Set(["courier"]);
